@@ -1,0 +1,43 @@
+<!--populate bar at the top of screen-->
+<div class = "container">
+  <nav aria-label="breadcrumb" role="navigation">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">{{product.categoryName}}</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{product.name}}</li>
+  </ol>
+</nav>
+
+<!--populate product description picture and field-->
+</div>
+<div class = "container">
+  <div class="jumbotron">
+    <img [src]= "src/app/images/product.imageName">
+    <h1>{{product.name}}</h1>
+    <span class="badge badge-primary">${{product.price}}</span>
+    <p>{{product.description}}</p>
+  </div>
+</div>
+
+<div class = "container">
+<div class="card"*ngFor = "let review of product.reviews;">
+  <div class="card-header">
+    Featured
+    <span *ngFor= "let level of [1,2,3,4,5]"
+      [class]="(reviews.rating >= level ? 'full-star' : 'empty-star')">
+    </span>
+  </div>
+  <div class="card-body">
+    <div class = "row">
+      <div class = "col-md">
+        <p class="card-text">{{review.userName}} </p>
+      </div>
+      <div class = "col-md">
+        <span class = "float-right">
+        <p class = "card-text">{{review.date}}</p>
+      </span>
+      </div>
+    </div>
+    <p class="card-text">{{review.comment}}</p>
+  </div>
+</div>
+</div>
