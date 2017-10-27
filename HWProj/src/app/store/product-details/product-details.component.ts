@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 //import product object
 import { Product} from '../../domain/index';
 import { ProductReview} from '../../domain/index';
+import { ProductReviewsComponent } from '../product-reviews/product-reviews.component';
 //set up component
 @Component({
   selector: 'product-details',

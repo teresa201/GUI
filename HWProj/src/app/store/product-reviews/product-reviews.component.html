@@ -1,0 +1,84 @@
+<div class = "container">
+  <div class="card">
+  <div class="card-header">
+    Add Review
+  </div>
+  <!--Using the form to populate the newReview object from the .ts file-->
+  <div class="card-body">
+    <div class = "container">
+      <div class = "row">
+        <!--Name field-->
+        <div class="col-md-6">
+          <div class = "form-group">
+            <label for = "YourName">
+              Your name
+            </label>
+            <input type = "text"
+                  id = "name"
+                  class = "form-control"
+                  [(ngModel)] = "newReview.userName"/>
+          </div>
+        </div>
+        <!--Dropdown for rating-->
+        <div class = "col-md-2">
+          <div class = "form-group">
+            <label for = "Rating">
+              Rating
+            </label>
+            <button type="button"
+                  class="btn btn-default dropdown-toggle"
+                  data-toggle="dropdown">Select
+                 <span class="caret"></span>
+              </button>
+              <!--loop through the ratings display in dropdown, onClick assign to
+              newRating-->
+              <div class="dropdown-menu" >
+                <li *ngFor="let level of [1,2,3,4,5]">
+              <a href="javascript:void(0);"
+                 (click)="newReview.rating = level">
+                 {{level}}
+               </a>
+
+              </div>
+
+
+          </div>
+        </div>
+        <!--Display stars-->
+        <div class = "col-md-4">
+          <span class = "stars">
+           <span *ngFor= "let level of [1,2,3,4,5]"
+             [class]="(newReview.rating >= level ? 'full-star' : 'empty-star')">
+           </span>
+         </span>
+        </div>
+      </div>
+
+    <!--Comment field-->
+    <div class = "row">
+      <div class = "col-md-12">
+      <div class = "form-group">
+        <label for = "comment">
+          Comment
+        </label>
+        <input type = "textarea"
+              id = "comment"
+              class = "form-control"
+              [(ngModel)] = "newReview.comment"/>
+      </div>
+    </div>
+    </div>
+<!--submits the newReview object-->
+    <button
+        type = "submit"
+        class="btn btn-primary"
+        (click) = "addReview()"
+        [disabled] = "!newReview.userName || !newReview.comment || !newReview.rating">
+        Submit</button>
+
+</div>
+
+
+  </div>
+</div>
+</div>
