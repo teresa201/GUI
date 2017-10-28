@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 //import product object
 import { Product} from '../../domain/index';
 import { ProductReview} from '../../domain/index';
-import { ProductReviewsComponent } from '../product-reviews/product-reviews.component';
+import { CurrencyPipe } from '@angular/common';
 //set up component
 @Component({
   selector: 'product-details',
@@ -23,18 +23,9 @@ export class ProductDetailsComponent{
       name: 'Jif Peanut Butter, 40 oz',
       description:
       '7g of Protien per serving with no perservatives, artifical flavors or colors.',
-      imageName: '13292010.jpeg',
+      imageName: 'product_pb_natural_creamy.png',
       price: 5.99,
-      reviews: [
-        {  userName: 'John Lawrimore',
-         rating: 3,
-         date: new Date(2017,10,25),
-         comment:'Better than Skippy!!' },
-         {  userName: 'Mark Fontnoet',
-          rating: 4,
-          date: new Date(2017,10,25),
-          comment:'Try it with Marshmellow Cream!!' }
-      ]
+      reviews: []
     };
   }
 

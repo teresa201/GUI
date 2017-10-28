@@ -1,6 +1,53 @@
+
+<!--heading-->
+<div class = "container">
+    <div class = "row">
+      <div class= "col-md-12">
+        <h4>Product Reviews ({{numReviews}})</h4>
+      </div>
+    </div>
+</div>
+
+<!--only display the reviews if there are any, else display default message-->
+<div class = "container" *ngIf = "numReviews > 0; else default">
+  <!--show reviews associated with product-->
+<div class="card"*ngFor = "let review of reviews;">
+  <div class="card-header">
+    <rating
+      [rating] = "review.rating">
+    </rating>
+  </div>
+  <div class="card-body">
+    <div class = "row">
+      <div class = "col-md">
+        <p class="card-text">{{review.userName}} </p>
+      </div>
+      <div class = "col-md">
+        <span class = "float-right">
+        <p class = "card-text">{{review.date | date: 'shortDate'}}</p>
+      </span>
+      </div>
+    </div>
+    <p class="card-text">{{review.comment}}</p>
+  </div>
+</div>
+</div>
+
+<!--else display default message-->
+<ng-template #default>
+  <div class = "container">
+      <div class = "row">
+        <div class= "col-md-12">
+        <p> Be the first to add a review!</p>
+        </div>
+      </div>
+  </div>
+</ng-template>
+<br/>
+
 <div class = "container">
   <div class="card">
-  <div class="card-header">
+  <div class="card-header" id= "black">
     Add Review
   </div>
   <!--Using the form to populate the newReview object from the .ts file-->
@@ -34,23 +81,19 @@
               newRating-->
               <div class="dropdown-menu" >
                 <li *ngFor="let level of [1,2,3,4,5]">
-              <a href="javascript:void(0);"
-                 (click)="newReview.rating = level">
-                 {{level}}
-               </a>
-
+                  <a href="javascript:void(0);"
+                    (click)="newReview.rating = level">
+                    {{level}}
+                  </a>
               </div>
-
-
           </div>
         </div>
-        <!--Display stars-->
+
+        <!--Display stars pass to rating component-->
         <div class = "col-md-4">
-          <span class = "stars">
-           <span *ngFor= "let level of [1,2,3,4,5]"
-             [class]="(newReview.rating >= level ? 'full-star' : 'empty-star')">
-           </span>
-         </span>
+          <rating
+            [rating] = "newReview.rating">
+          </rating>
         </div>
       </div>
 
@@ -68,6 +111,7 @@
       </div>
     </div>
     </div>
+
 <!--submits the newReview object-->
     <button
         type = "submit"
@@ -76,9 +120,7 @@
         [disabled] = "!newReview.userName || !newReview.comment || !newReview.rating">
         Submit</button>
 
-</div>
-
-
+      </div>
   </div>
-</div>
+  </div>
 </div>

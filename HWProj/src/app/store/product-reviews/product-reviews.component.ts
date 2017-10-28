@@ -1,5 +1,5 @@
 import { Component, OnInit,Input } from '@angular/core';
-
+import { DatePipe } from '@angular/common';
 //import product object
 import { Product} from '../../domain/index';
 import { ProductReview} from '../../domain/index';
@@ -22,6 +22,7 @@ export class ProductReviewsComponent{
     this.newReview.date = new Date();
     this.reviews.push(this.newReview);
     this.newReview = new ProductReview();
+    this.numReviews++;
   }
 
 
