@@ -8,13 +8,18 @@ import { RatingComponent } from './rating/rating.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { RoutingModule } from '../routing.module';
+import { RouterModule } from '@angular/router';
 
 //set up store module
 @NgModule({
     imports: [
         BrowserModule,
         DomainModule,
-        FormsModule
+        FormsModule,
+        RouterModule,
+        RoutingModule
+
     ],
     declarations: [
         ProductDetailsComponent,
