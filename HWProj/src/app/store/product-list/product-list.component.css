@@ -1,0 +1,18 @@
+img{
+  padding: 15%;
+}
+.img-fluid{
+  max-width: auto;
+  max-height: 50%;
+}
+
+.img-responsive{
+  display: block;
+    height: 50%;
+    max-width: 100%;
+}
+
+#title{
+  text-align: center;
+  min-height: 11%;
+}

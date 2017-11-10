@@ -1,4 +1,4 @@
-<p> Placeholder for ProductList</p>
+
 <!--populate bar at the top of screen-->
 <div class = "container">
   <nav aria-label="breadcrumb" role="navigation">
@@ -9,18 +9,27 @@
 
 <!--<product-details *ngFor = "let p of products; let i = index"
  [product] = "p"
- [index] = "i"
+ [index] = "i"mx-auto d-block"center-block img-responsive"
 ></product-details>-->
+<div class = "row">
+<div class = "card-deck">
 <div class="card" *ngFor = "let p of products; let i = index" style="width: 20rem;">
-  <img class="card-img-top"
+  <img class="card-img-top"class="mx-auto d-block img-responsive"
   [src]= "'src/app/images/' + p.imageName"
   [alt] = "p.name">
   <div class="card-body">
-    <span class="badge badge-primary">{{p.price | currency: 'USD':true }}</span>
+
+    <div class="badge badge-success pull-right">{{p.price | currency: 'USD':true }}</div>
+
+    <div class = "row" id = "title">
     <h4 class="card-title">{{ p.name }}</h4>
-    <p class="card-text">{{ p.description }}</p>
-    <a [routerLink] = "[i]"
-    routerLinkActive = "active" class="btn btn-primary">Product Details</a>
-    <a href="#" class="btn btn-warning">Add to Cart</a>
   </div>
+    <a [routerLink] = "[i]"
+    routerLinkActive = "active" class="btn btn-primary btn-block">Product Details</a>
+    <a href="#" class="btn btn-warning btn-block">Add to Cart</a>
+
+  </div>
+</div>
+
+</div>
 </div>
