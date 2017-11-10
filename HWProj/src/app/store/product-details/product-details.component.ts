@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 //import product object
 import { Product} from '../../domain/index';
@@ -13,20 +13,11 @@ import { CurrencyPipe } from '@angular/common';
 
 
 export class ProductDetailsComponent{
-  private product: Product;
+  @Input() product: Product;
+  @Input() index: number;
 
   constructor(){
-    this.product = {
-      id: 0,
-      categoryId: 1,
-      categoryName: 'Tasty snacks',
-      name: 'Jif Peanut Butter, 40 oz',
-      description:
-      '7g of Protien per serving with no perservatives, artifical flavors or colors.',
-      imageName: 'product_pb_natural_creamy.png',
-      price: 5.99,
-      reviews: []
-    };
+
   }
 
 }

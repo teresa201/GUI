@@ -1,0 +1,25 @@
+<p> Placeholder for ProductList</p>
+<!--populate bar at the top of screen-->
+<div class = "container">
+  <nav aria-label="breadcrumb" role="navigation">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">Tasty Snacks</li>
+  </ol>
+</nav>
+
+<!--<product-details *ngFor = "let p of products; let i = index"
+ [product] = "p"
+ [index] = "i"
+></product-details>-->
+<div class="card" *ngFor = "let p of products; let i = index" style="width: 20rem;">
+  <img class="card-img-top"
+  [src]= "'src/app/images/' + p.imageName"
+  [alt] = "p.name">
+  <div class="card-body">
+    <span class="badge badge-primary">{{p.price | currency: 'USD':true }}</span>
+    <h4 class="card-title">{{ p.name }}</h4>
+    <p class="card-text">{{ p.description }}</p>
+    <a href="#" class="btn btn-primary">Product Details</a>
+    <a href="#" class="btn btn-warning">Add to Cart</a>
+  </div>
+</div>

@@ -5,6 +5,10 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { DomainModule } from '../domain';
 import { ProductReviewsComponent } from './product-reviews/product-reviews.component';
 import { RatingComponent } from './rating/rating.component';
+import { ProductListComponent } from './product-list/product-list.component';
+import { CartComponent } from './cart/cart.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+
 //set up store module
 @NgModule({
     imports: [
@@ -15,12 +19,18 @@ import { RatingComponent } from './rating/rating.component';
     declarations: [
         ProductDetailsComponent,
         ProductReviewsComponent,
-        RatingComponent
+        RatingComponent,
+        ProductListComponent,
+        CartComponent,
+        CheckoutComponent
     ],
     exports: [
         ProductDetailsComponent,
         ProductReviewsComponent,
-        RatingComponent
+        RatingComponent,
+        ProductListComponent,
+        CartComponent,
+        CheckoutComponent
     ]
 })
 export class StoreModule {
