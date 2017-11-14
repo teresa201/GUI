@@ -13,19 +13,19 @@
   <div class="jumbotron">
     <div class = "row">
       <div class = "col-md-4">
-        <img class = "img-responsive"
+        <img class = "img-responsive mx-auto d-block"
             [src]= "'src/app/images/' + product.imageName"
             [alt] = "product.name">
       </div>
       <div class = "col-md-8">
         <h1>{{product.name}}</h1>
-        <span class="badge badge-primary">{{product.price | currency: 'USD':true }}</span>
+        <div class="badge badge-primary">{{product.price | currency: 'USD':true }}</div>
         <p>{{product.description}}</p>
       </div>
-      <div class = "row">
-        <div class = "text-right">
+      <div class = "row float-right">
+        <div class = "col-12 float-right">
         <a routerLink = "/cart"
-        routerLinkActive = "active" class="btn btn-success">Add to Cart</a>
+        routerLinkActive = "active" class="btn btn-success float-right">Add to Cart</a>
       </div>
     </div>
   </div>

@@ -27,7 +27,7 @@ export class ProductRepositoryService {
         ),
         new Product(
           3,1,
-           'Tasty snacks','Pillsbury ToasterStrudel Pastries- Strawberry',
+           'Tasty snacks','Pillsbury Toaster Strudel Pastries- Strawberry',
           'Strawberry filled toaster pastry',
           '3.png',
            4.99,
