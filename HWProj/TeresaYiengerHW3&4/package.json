@@ -21,12 +21,11 @@
     "@angular/platform-browser-dynamic": "~4.3.6",
     "@angular/platform-server": "~4.3.6",
     "@angular/router": "~4.3.6",
-    "angular-in-memory-web-api": "^0.5.1",
-    "bootstrap": "^4.0.0-beta",
     "core-js": "^2.4.1",
     "rxjs": "^5.2.0",
     "typescript": "^2.2.2",
-    "zone.js": "^0.8.5"
+    "zone.js": "^0.8.5",
+    "bootstrap": "^4.0.0-beta"
   },
   "devDependencies": {
     "@types/core-js": "^0.9.35",

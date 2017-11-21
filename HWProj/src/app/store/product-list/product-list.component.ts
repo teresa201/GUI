@@ -21,18 +21,23 @@ export class ProductListComponent{
   constructor(private productRepositoryService:ProductRepositoryService ){}
 
   ngOnInit() {
+    this.productRepositoryService.getAll()
+      .subscribe(x => this.onProductsLoaded(x));
     //listen to see if listings changed, use ListingService to get Listings
-    this.subscription = this.productRepositoryService.productsChanged
+  /*  this.subscription = this.productRepositoryService.productsChanged
       .subscribe(
         (products: Product[]) => {
           this.products = products;
         }
       );
-    this.products = this.productRepositoryService.getProducts();
+    this.products = this.productRepositoryService.getProducts();*/
   }
 
+  private onProductsLoaded(products: Product[]){
+      this.products = products;
+    }
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+  //  this.subscription.unsubscribe();
   }
 
 

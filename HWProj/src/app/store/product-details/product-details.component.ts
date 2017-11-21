@@ -22,13 +22,38 @@ export class ProductDetailsComponent{
     private router: Router
   ){ }
   ngOnInit() {
-    this.route.params
+    /*this.route.params
       .subscribe(
         (params: Params) => {
           this.index = +params['id'];
-          this.product = this.productRepositoryService.getProduct(this.index);
+          this.product = this.productRepositoryService.getById(this.index);
         }
-      );
+      );*/
+      this.route.params.subscribe(x => this.onRouteParams(x));
   }
 
+  private onRouteParams(params: any) {
+    this.index = +params.id;
+    this.productRepositoryService.getById(this.index)
+        .subscribe(x => this.onProductLoaded(x));
+
+  }
+
+  private onProductLoaded(product: Product) {
+    this.product = product;
+    //console.log(this.product);
+  }
+
+  private save(newpr: ProductReview[]) {
+  //  if (this.index) {
+      this.product.reviews = newpr;
+      //console.log(this.product.reviews);
+      this.productRepositoryService.update(this.index, this.product)
+        .subscribe(x => this.onProductSaved(x));
+  //  }
+  }
+  private onProductSaved(product: Product) {
+    this.router.navigateByUrl('');
+    //console.log(product);
+  }
 }

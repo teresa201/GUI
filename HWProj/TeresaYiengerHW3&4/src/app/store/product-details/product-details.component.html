@@ -2,7 +2,7 @@
 <div class = "container">
   <nav aria-label="breadcrumb" role="navigation">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a routerLink = "" routerLinkActive = "active">{{product.categoryName}}</a></li>
+    <li class="breadcrumb-item"><a href="#">{{product.categoryName}}</a></li>
     <li class="breadcrumb-item active" aria-current="page">{{product.name}}</li>
   </ol>
 </nav>
@@ -13,30 +13,20 @@
   <div class="jumbotron">
     <div class = "row">
       <div class = "col-md-4">
-        <img class = "img-responsive mx-auto d-block"
+        <img class = "img-responsive"
             [src]= "'src/app/images/' + product.imageName"
             [alt] = "product.name">
       </div>
       <div class = "col-md-8">
         <h1>{{product.name}}</h1>
-        <div class="badge badge-primary">{{product.price | currency: 'USD':true }}</div>
+        <span class="badge badge-primary">{{product.price | currency: 'USD':true }}</span>
         <p>{{product.description}}</p>
       </div>
-      <div class = "row float-right">
-        <div class = "col-12 float-right">
-        <a routerLink = "/cart"
-        routerLinkActive = "active" class="btn btn-success float-right">Add to Cart</a>
-      </div>
-    </div>
   </div>
   </div>
 </div>
 
 <!--Display existing reviews and add reviews form-->
-<product-reviews (productReviewChange) = "save($event)"
+<product-reviews
   [reviews] = "product.reviews">
 </product-reviews>
-<!--<div class="col-md-4">
-      <p>Hi</p>
-      <pre>{{ product|json }}</pre>
-    </div>-->
