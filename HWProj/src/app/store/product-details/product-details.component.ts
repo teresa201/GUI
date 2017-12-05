@@ -4,6 +4,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Product} from '../../domain/index';
 import { ProductReview} from '../../domain/index';
 import { CurrencyPipe } from '@angular/common';
+import { CartService } from '../../domain/cart.service';
 import { ProductRepositoryService } from '../../domain/product-repository.service';
 //set up component
 @Component({
@@ -19,7 +20,7 @@ export class ProductDetailsComponent{
 
   constructor(private productRepositoryService: ProductRepositoryService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,private cartService:CartService
   ){ }
   ngOnInit() {
     /*this.route.params
@@ -55,5 +56,10 @@ export class ProductDetailsComponent{
   private onProductSaved(product: Product) {
     this.router.navigateByUrl('');
     //console.log(product);
+  }
+
+  cart(){
+    this.cartService.addToCart(this.product,1);
+    this.router.navigateByUrl('/cart');
   }
 }

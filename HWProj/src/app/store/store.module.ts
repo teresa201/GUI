@@ -8,9 +8,10 @@ import { RatingComponent } from './rating/rating.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { StoreHeaderComponent } from './store-header/store-header.component';
 import { RoutingModule } from '../routing.module';
 import { RouterModule } from '@angular/router';
-
+import { ReactiveFormsModule} from '@angular/forms';
 //set up store module
 @NgModule({
     imports: [
@@ -18,7 +19,8 @@ import { RouterModule } from '@angular/router';
         DomainModule,
         FormsModule,
         RouterModule,
-        RoutingModule
+        RoutingModule,
+        ReactiveFormsModule
 
     ],
     declarations: [
@@ -27,7 +29,8 @@ import { RouterModule } from '@angular/router';
         RatingComponent,
         ProductListComponent,
         CartComponent,
-        CheckoutComponent
+        CheckoutComponent,
+        StoreHeaderComponent
     ],
     exports: [
         ProductDetailsComponent,
@@ -35,7 +38,8 @@ import { RouterModule } from '@angular/router';
         RatingComponent,
         ProductListComponent,
         CartComponent,
-        CheckoutComponent
+        CheckoutComponent,
+        StoreHeaderComponent
     ]
 })
 export class StoreModule {

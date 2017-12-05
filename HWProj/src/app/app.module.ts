@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { StoreModule } from './store';
 import { RoutingModule } from './routing.module';
 import { ProductRepositoryService } from './domain/product-repository.service';
+import { CartService } from './domain/cart.service';
 @NgModule({
 imports: [
   BrowserModule ,
@@ -13,7 +14,7 @@ imports: [
   RoutingModule
 ],
 declarations: [AppComponent],
-providers: [ProductRepositoryService],
+providers: [ProductRepositoryService, CartService],
 bootstrap: [AppComponent]
 })
 export class AppModule { }
